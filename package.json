@@ -1,0 +1,1 @@
+{"description":"Starlight Salvage — a top-down arcade game for the make.fun best-game-01 bounty.","license":"MIT","name":"starlight-salvage","private":true,"scripts":{"dossier":"node main.ts","start":"node serve.ts"},"type":"module","version":"1.0.0"}
