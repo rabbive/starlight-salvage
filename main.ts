@@ -3,7 +3,7 @@
 // dossier.json from them, using the kit's buildDossier (vendor/makefun-game.ts).
 // Node standard library only; run with: node main.ts
 
-import { cpSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-game.ts';
@@ -20,8 +20,8 @@ const caps = {
 };
 
 function main(): void {
-  // Start from a clean output directory so stale files never leak in.
-  rmSync(outputDir, { recursive: true, force: true });
+  // The grader mounts /output as an empty writable directory: never remove
+  // it (rmdir on a mount point fails), only create it and fill it.
   mkdirSync(outputDir, { recursive: true });
 
   cpSync(join(repoRoot, 'game'), join(outputDir, 'game'), { recursive: true });
